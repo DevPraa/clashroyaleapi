@@ -12,6 +12,7 @@ using ClashRoyaleAPI.Models.Players;
 using ClashRoyaleClanMonitorWF.Controls.Cards;
 using ClashRoyaleClanMonitorWF.Properties;
 using ClashRoyaleAPI.Models.Cards;
+using ClashRoyaleClanMonitorWF.Utils;
 
 namespace ClashRoyaleClanMonitorWF.Controls.Players
 {
@@ -22,8 +23,8 @@ namespace ClashRoyaleClanMonitorWF.Controls.Players
         {
             set
             {
-                MinimumSize = new Size(value, 56);
-                MaximumSize = new Size(value, 56);
+                MinimumSize = new Size(value, 70);
+                MaximumSize = new Size(value, 70);
                 this.Size = new Size(value, this.Height);
             }
         }
@@ -31,15 +32,17 @@ namespace ClashRoyaleClanMonitorWF.Controls.Players
         Сard[] tmpDeck;
         public PlayerInfo(int Number, Player player, UpcomingChests chests)
         {
-            InitializeComponent();         
+            InitializeComponent();
             lbl_Number.Text = Number.ToString();
             mlbl_NickName.Text = player.name;
             mlbl_Tag.Text = player.tag;
+            mlbl_lastSeen.Text = player.lastSeen.ClashRoyaleDateToDateTime().ToLocalTime().ToString();
             mlbl_Trophies.Text = player.trophies.ToString();
             label2.Text = player.expLevel.ToString();
             lbl_Position.Text = PositionSwitch(player.role);
             lbl_donated.Text = player.donations.ToString();
             lbl_received.Text = player.donationsReceived.ToString();
+
             ArenaSwitch(player.arena.id);
             tmpDeck = player.currentDeck.ToArray();            
         }
@@ -96,14 +99,14 @@ namespace ClashRoyaleClanMonitorWF.Controls.Players
             if (ShowDeck)
             {
                 CustomizeInitializeComponent();
-                pictureBox1.Image = Program.ImgCards.Where(c => c.Name == $"{tmpDeck[0].name}").FirstOrDefault().Img; //tmpDeck[0].iconUrls.medium);
-                pictureBox2.Image = Program.ImgCards.Where(c => c.Name == $"{tmpDeck[1].name}").FirstOrDefault().Img;//.LoadAsync(tmpDeck[1].iconUrls.medium);
-                pictureBox3.Image = Program.ImgCards.Where(c => c.Name == $"{tmpDeck[2].name}").FirstOrDefault().Img;//.LoadAsync(tmpDeck[2].iconUrls.medium);
-                pictureBox4.Image = Program.ImgCards.Where(c => c.Name == $"{tmpDeck[3].name}").FirstOrDefault().Img;//.LoadAsync(tmpDeck[3].iconUrls.medium);
-                pictureBox5.Image = Program.ImgCards.Where(c => c.Name == $"{tmpDeck[4].name}").FirstOrDefault().Img;//.LoadAsync(tmpDeck[4].iconUrls.medium);
-                pictureBox6.Image = Program.ImgCards.Where(c => c.Name == $"{tmpDeck[5].name}").FirstOrDefault().Img;//.LoadAsync(tmpDeck[5].iconUrls.medium);
-                pictureBox7.Image = Program.ImgCards.Where(c => c.Name == $"{tmpDeck[6].name}").FirstOrDefault().Img;//.LoadAsync(tmpDeck[6].iconUrls.medium);
-                pictureBox8.Image = Program.ImgCards.Where(c => c.Name == $"{tmpDeck[7].name}").FirstOrDefault().Img;//.LoadAsync(tmpDeck[7].iconUrls.medium);
+                pictureBox1.Image = Program.ImgCards.Where(c => c.Name == $"{tmpDeck[0].name}").FirstOrDefault().Img;
+                pictureBox2.Image = Program.ImgCards.Where(c => c.Name == $"{tmpDeck[1].name}").FirstOrDefault().Img;
+                pictureBox3.Image = Program.ImgCards.Where(c => c.Name == $"{tmpDeck[2].name}").FirstOrDefault().Img;
+                pictureBox4.Image = Program.ImgCards.Where(c => c.Name == $"{tmpDeck[3].name}").FirstOrDefault().Img;
+                pictureBox5.Image = Program.ImgCards.Where(c => c.Name == $"{tmpDeck[4].name}").FirstOrDefault().Img;
+                pictureBox6.Image = Program.ImgCards.Where(c => c.Name == $"{tmpDeck[5].name}").FirstOrDefault().Img;
+                pictureBox7.Image = Program.ImgCards.Where(c => c.Name == $"{tmpDeck[6].name}").FirstOrDefault().Img;
+                pictureBox8.Image = Program.ImgCards.Where(c => c.Name == $"{tmpDeck[7].name}").FirstOrDefault().Img;
                 btn_ShowDeck.Text = "Hide Deck";
                 ShowDeck = false;
             }
@@ -139,7 +142,7 @@ namespace ClashRoyaleClanMonitorWF.Controls.Players
             // 
             this.pictureBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox8.Location = new System.Drawing.Point(632, 2);
+            this.pictureBox8.Location = new System.Drawing.Point(632, 10);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(40, 50);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -150,7 +153,7 @@ namespace ClashRoyaleClanMonitorWF.Controls.Players
             // 
             this.pictureBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox7.Location = new System.Drawing.Point(590, 2);
+            this.pictureBox7.Location = new System.Drawing.Point(590, 10);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(40, 50);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -161,7 +164,7 @@ namespace ClashRoyaleClanMonitorWF.Controls.Players
             // 
             this.pictureBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox6.Location = new System.Drawing.Point(548, 2);
+            this.pictureBox6.Location = new System.Drawing.Point(548, 10);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(40, 50);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -172,7 +175,7 @@ namespace ClashRoyaleClanMonitorWF.Controls.Players
             // 
             this.pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox5.Location = new System.Drawing.Point(506, 2);
+            this.pictureBox5.Location = new System.Drawing.Point(506, 10);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(40, 50);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -183,7 +186,7 @@ namespace ClashRoyaleClanMonitorWF.Controls.Players
             // 
             this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox4.Location = new System.Drawing.Point(464, 2);
+            this.pictureBox4.Location = new System.Drawing.Point(464, 10);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(40, 50);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -194,7 +197,7 @@ namespace ClashRoyaleClanMonitorWF.Controls.Players
             // 
             this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.Location = new System.Drawing.Point(422, 2);
+            this.pictureBox3.Location = new System.Drawing.Point(422, 10);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(40, 50);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -205,7 +208,7 @@ namespace ClashRoyaleClanMonitorWF.Controls.Players
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Location = new System.Drawing.Point(338, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(338, 10);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(40, 50);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -216,7 +219,7 @@ namespace ClashRoyaleClanMonitorWF.Controls.Players
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Location = new System.Drawing.Point(380, 2);
+            this.pictureBox2.Location = new System.Drawing.Point(380, 10);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(40, 50);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

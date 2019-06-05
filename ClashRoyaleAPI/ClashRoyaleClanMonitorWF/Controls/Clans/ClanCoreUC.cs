@@ -21,7 +21,7 @@ namespace ClashRoyaleClanMonitorWF.Controls.Clans
 
         public ClanCoreUC()
         {
-                InitializeComponent();
+            InitializeComponent();
             if (Program.MyPlayerProfile != null)
             {
                 Tile.Text = Program.MyPlayerProfile.clan.name;
@@ -30,11 +30,14 @@ namespace ClashRoyaleClanMonitorWF.Controls.Clans
             {
                 for (int i = 0; i < Program.ClanMembersDetailInfo.Length; i++)
                 {
-                    playerInfo = new PlayerInfo((i+1), Program.ClanMembersDetailInfo[i], Program.ClanMembersChests[i]);
+                    playerInfo = new PlayerInfo((i + 1), Program.ClanMembersDetailInfo[i], Program.ClanMembersChests[i]);
                     FLP_ClanMembers.Controls.Add(playerInfo);
-                }                
+                }
             }
-            
+
+            ClanInfoControl clanInfo = new ClanInfoControl();
+            clanInfo.Dock = DockStyle.Fill;
+            InformationTPage.Controls.Add(clanInfo);
         }
 
         private void flowLayoutPanel1_SizeChanged(object sender, EventArgs e)
@@ -48,7 +51,6 @@ namespace ClashRoyaleClanMonitorWF.Controls.Clans
                 }
             }
             }));
-            //playerInfo.Width = this.Width - 20;
         }
     }
 }

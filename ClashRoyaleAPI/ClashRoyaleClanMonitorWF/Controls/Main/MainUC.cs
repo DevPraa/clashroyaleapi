@@ -162,6 +162,7 @@ namespace ClashRoyaleClanMonitorWF.Controls.Main
                 case "Giant Chest": return Resources.giant_chest;
                 case "Legendary Chest": return Resources.legendary_chest;
                 case "Super Magical Chest": return Resources.super_magical_chest;
+                case "Mega Lightning Chest": return Resources.super_lightning_chest;
                 default:
                     return Resources.silver_chest;
             }
@@ -194,67 +195,76 @@ namespace ClashRoyaleClanMonitorWF.Controls.Main
             {
                 //var t = _PlayerListInfo.Select(c => new { c.name, c.cards });//.Where(card => card.name == mtb_SearchCard.Text).ToList();
                 //var T = player.GetPlayerInfo(PersonOnClan[i]);
-                
-                foreach (var item in Program.ClanMembersDetailInfo)
+                if (!string.IsNullOrWhiteSpace(mtb_SearchCard.Text))
                 {
-                    var Card = item.cards.Where(c => c.name == mtb_SearchCard.Text).FirstOrDefault();
-                    if (Card != null)
+                    string SearchWord = mtb_SearchCard.Text.ToLowerInvariant();
+                    if (Program.LocalLanguage == Enums.Language.Ru)
                     {
-                        int lvl = Card.level + Utils.CardHelper.GetStartLvl(Utils.CardHelper.GetCardRare(Card.name));
-                        var rare = Utils.CardHelper.GetCardRare(Card.name);
-                        switch (rare)
-                        {
-                            case Enums.CardRare.Common:
-                                {
-                                    if (Card.count > 250)
-                                    {
-                                        CardSearchInfo cardSearchInfo = new CardSearchInfo(item.name, lvl, Card.count);
-                                        FLP_CardSearch.Controls.Add(cardSearchInfo);
-                                    }
-                                }
-                                break;
-                            case Enums.CardRare.Rare:
-                                {
-                                    if (Card.count > 50)
-                                    {
-                                        CardSearchInfo cardSearchInfo = new CardSearchInfo(item.name, lvl, Card.count);
-                                        FLP_CardSearch.Controls.Add(cardSearchInfo);
-                                    }
-                                }
-                                break;
-                            case Enums.CardRare.Epic:
-                                {
-                                    if (Card.count > 10)
-                                    {
-                                        CardSearchInfo cardSearchInfo = new CardSearchInfo(item.name, lvl, Card.count);
-                                        FLP_CardSearch.Controls.Add(cardSearchInfo);
-                                    }
-                                }
-                                break;
-                            case Enums.CardRare.Legendary:
-                                {
-                                    if ((lvl == 9 && Card.count == 1))
-                                    {
+                        SearchWord = Program.ImgCards.Where(c => c.RusName.ToLowerInvariant() == SearchWord)?.FirstOrDefault()?.Name.ToLowerInvariant() ?? SearchWord;
+                    }
+                    foreach (var item in Program.ClanMembersDetailInfo)
+                    {
 
-                                    }
-                                    else
+                        var Card = item.cards.Where(c => c.name.ToLowerInvariant() == SearchWord).FirstOrDefault();
+                        if (Card != null)
+                        {
+                            int lvl = Card.level + Utils.CardHelper.GetStartLvl(Utils.CardHelper.GetCardRare(Card.name));
+                            var rare = Utils.CardHelper.GetCardRare(Card.name);
+                            switch (rare)
+                            {
+                                case Enums.CardRare.Common:
                                     {
-                                        if (Card.count > 0)
+                                        if (Card.count > 250)
                                         {
                                             CardSearchInfo cardSearchInfo = new CardSearchInfo(item.name, lvl, Card.count);
                                             FLP_CardSearch.Controls.Add(cardSearchInfo);
                                         }
-
                                     }
-                                }
-                                break;
-                            case Enums.CardRare.Unknown:
-                                break;
-                            default:
-                                break;
+                                    break;
+                                case Enums.CardRare.Rare:
+                                    {
+                                        if (Card.count > 50)
+                                        {
+                                            CardSearchInfo cardSearchInfo = new CardSearchInfo(item.name, lvl, Card.count);
+                                            FLP_CardSearch.Controls.Add(cardSearchInfo);
+                                        }
+                                    }
+                                    break;
+                                case Enums.CardRare.Epic:
+                                    {
+                                        if (Card.count > 10)
+                                        {
+                                            CardSearchInfo cardSearchInfo = new CardSearchInfo(item.name, lvl, Card.count);
+                                            FLP_CardSearch.Controls.Add(cardSearchInfo);
+                                        }
+                                    }
+                                    break;
+                                case Enums.CardRare.Legendary:
+                                    {
+                                        if ((lvl == 9 && Card.count == 1))
+                                        {
+
+                                        }
+                                        else
+                                        {
+                                            if (Card.count > 0)
+                                            {
+                                                CardSearchInfo cardSearchInfo = new CardSearchInfo(item.name, lvl, Card.count);
+                                                FLP_CardSearch.Controls.Add(cardSearchInfo);
+                                            }
+
+                                        }
+                                    }
+                                    break;
+                                case Enums.CardRare.Unknown:
+                                    break;
+                                default:
+                                    break;
+                            }
                         }
                     }
                 }
+
             }
         }
 

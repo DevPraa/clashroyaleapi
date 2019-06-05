@@ -15,13 +15,16 @@ namespace ClashRoyaleClanMonitorWF.Models
         {            
             string _Name;
             public Image Img { get; set; }
-            public string Name { get {
-                    return _Name;//.Replace(".png", "");
-                } set { _Name = value; } }
-            public CardRare Rare { get { return CardHelper.GetCardRare(Name); } }
-            public CardType Type { get { return CardHelper.GetCardType(Name); } }
-            public int Cost { get { return CardHelper.GetCardCost(Name); } }
+            public string Name
+            {
+                get { return _Name; }
+                set { _Name = value; }
+            }
+            public CardRare Rare { get; set; }
+            public CardType Type { get; set; }
+            public int Cost { get; set; }
             public int StartLvl { get { return CardHelper.GetStartLvl(Rare); } }
+            public string RusName { get; set; }
             public string Description { get; set; }
 
 

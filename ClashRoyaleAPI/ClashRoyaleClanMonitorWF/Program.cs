@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using static ClashRoyaleClanMonitorWF.Models.LocalResource;
+using ClashRoyaleClanMonitorWF.Enums;
 
 namespace ClashRoyaleClanMonitorWF
 {
@@ -32,5 +33,7 @@ namespace ClashRoyaleClanMonitorWF
         public static Player[] ClanMembersDetailInfo;
         public static UpcomingChests[] ClanMembersChests;
         public static CMC.Warlog ClanWarLog;
+        public static System.Xml.XmlNodeList LocalizationCard;
+        public static Language LocalLanguage;
     }
 }

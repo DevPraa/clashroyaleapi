@@ -12,6 +12,7 @@ namespace ClashRoyaleAPI.Models.Clans
     {
         public string tag { get; set; } //"#80UGRY9V8",
         public string name { get; set; } //"SuchPower",
+        public string lastSeen { get; set; } //: "20190512T235522.000Z",
         public int expLevel { get; set; } //12,
         public int trophies { get; set; } //4852,
         public Arena arena { get; set; } //{

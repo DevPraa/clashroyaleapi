@@ -30,12 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.MSM = new MetroFramework.Components.MetroStyleManager(this.components);
-            this.metroTile1 = new MetroFramework.Controls.MetroTile();
             this.mpnl_LeftMenu = new MetroFramework.Controls.MetroPanel();
             this.SidePanel = new System.Windows.Forms.Panel();
             this.MainPanel = new MetroFramework.Controls.MetroPanel();
             this.bgw_LoadData = new System.ComponentModel.BackgroundWorker();
             this.pgbar_Loading = new MetroFramework.Controls.MetroProgressBar();
+            this.mlbl_ProgressText = new System.Windows.Forms.Label();
+            this.btn_LangRu = new System.Windows.Forms.Button();
+            this.btn_Lang = new System.Windows.Forms.Button();
+            this.btn_Refresh = new System.Windows.Forms.Button();
             this.btn_Minimize = new System.Windows.Forms.Button();
             this.btn_Maximize = new System.Windows.Forms.Button();
             this.btn_Close = new System.Windows.Forms.Button();
@@ -43,7 +46,6 @@
             this.btn_Settings = new System.Windows.Forms.Button();
             this.btn_Clan = new System.Windows.Forms.Button();
             this.btn_Main = new System.Windows.Forms.Button();
-            this.mlbl_ProgressText = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MSM)).BeginInit();
             this.mpnl_LeftMenu.SuspendLayout();
             this.SuspendLayout();
@@ -53,27 +55,18 @@
             this.MSM.Owner = this;
             this.MSM.Style = MetroFramework.MetroColorStyle.Red;
             // 
-            // metroTile1
-            // 
-            this.metroTile1.ActiveControl = null;
-            this.metroTile1.Location = new System.Drawing.Point(8, 508);
-            this.metroTile1.Name = "metroTile1";
-            this.metroTile1.Size = new System.Drawing.Size(98, 23);
-            this.metroTile1.TabIndex = 1;
-            this.metroTile1.Text = "metroTile1";
-            this.metroTile1.UseSelectable = true;
-            this.metroTile1.Click += new System.EventHandler(this.metroTile1_Click);
-            // 
             // mpnl_LeftMenu
             // 
             this.mpnl_LeftMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.mpnl_LeftMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.mpnl_LeftMenu.Controls.Add(this.btn_LangRu);
+            this.mpnl_LeftMenu.Controls.Add(this.btn_Lang);
+            this.mpnl_LeftMenu.Controls.Add(this.btn_Refresh);
             this.mpnl_LeftMenu.Controls.Add(this.btn_Minimize);
             this.mpnl_LeftMenu.Controls.Add(this.btn_Maximize);
             this.mpnl_LeftMenu.Controls.Add(this.btn_Close);
             this.mpnl_LeftMenu.Controls.Add(this.SidePanel);
-            this.mpnl_LeftMenu.Controls.Add(this.metroTile1);
             this.mpnl_LeftMenu.Controls.Add(this.btn_Help);
             this.mpnl_LeftMenu.Controls.Add(this.btn_Settings);
             this.mpnl_LeftMenu.Controls.Add(this.btn_Clan);
@@ -143,6 +136,65 @@
             this.pgbar_Loading.TabIndex = 4;
             this.pgbar_Loading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.pgbar_Loading.Value = 50;
+            // 
+            // mlbl_ProgressText
+            // 
+            this.mlbl_ProgressText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.mlbl_ProgressText.BackColor = System.Drawing.Color.White;
+            this.mlbl_ProgressText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.mlbl_ProgressText.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.mlbl_ProgressText.Location = new System.Drawing.Point(168, 580);
+            this.mlbl_ProgressText.Name = "mlbl_ProgressText";
+            this.mlbl_ProgressText.Size = new System.Drawing.Size(343, 17);
+            this.mlbl_ProgressText.TabIndex = 18;
+            this.mlbl_ProgressText.Text = "PlayerNick";
+            this.mlbl_ProgressText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btn_LangRu
+            // 
+            this.btn_LangRu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_LangRu.FlatAppearance.BorderSize = 0;
+            this.btn_LangRu.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(17)))), ((int)(((byte)(65)))));
+            this.btn_LangRu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_LangRu.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_LangRu.ForeColor = System.Drawing.Color.White;
+            this.btn_LangRu.Image = global::ClashRoyaleClanMonitorWF.Properties.Resources.ru24;
+            this.btn_LangRu.Location = new System.Drawing.Point(105, 573);
+            this.btn_LangRu.Name = "btn_LangRu";
+            this.btn_LangRu.Size = new System.Drawing.Size(29, 27);
+            this.btn_LangRu.TabIndex = 12;
+            this.btn_LangRu.UseVisualStyleBackColor = true;
+            // 
+            // btn_Lang
+            // 
+            this.btn_Lang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_Lang.FlatAppearance.BorderSize = 0;
+            this.btn_Lang.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(17)))), ((int)(((byte)(65)))));
+            this.btn_Lang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Lang.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_Lang.ForeColor = System.Drawing.Color.White;
+            this.btn_Lang.Image = global::ClashRoyaleClanMonitorWF.Properties.Resources.en24;
+            this.btn_Lang.Location = new System.Drawing.Point(136, 573);
+            this.btn_Lang.Name = "btn_Lang";
+            this.btn_Lang.Size = new System.Drawing.Size(29, 27);
+            this.btn_Lang.TabIndex = 11;
+            this.btn_Lang.UseVisualStyleBackColor = true;
+            // 
+            // btn_Refresh
+            // 
+            this.btn_Refresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_Refresh.FlatAppearance.BorderSize = 0;
+            this.btn_Refresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(17)))), ((int)(((byte)(65)))));
+            this.btn_Refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Refresh.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_Refresh.ForeColor = System.Drawing.Color.White;
+            this.btn_Refresh.Image = global::ClashRoyaleClanMonitorWF.Properties.Resources.refresh24;
+            this.btn_Refresh.Location = new System.Drawing.Point(32, 573);
+            this.btn_Refresh.Name = "btn_Refresh";
+            this.btn_Refresh.Size = new System.Drawing.Size(29, 27);
+            this.btn_Refresh.TabIndex = 10;
+            this.btn_Refresh.UseVisualStyleBackColor = true;
+            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
             // btn_Minimize
             // 
@@ -258,18 +310,6 @@
             this.btn_Main.Click += new System.EventHandler(this.btn_Main_Click);
             this.btn_Main.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn_Main_MouseDown);
             // 
-            // mlbl_ProgressText
-            // 
-            this.mlbl_ProgressText.BackColor = System.Drawing.Color.White;
-            this.mlbl_ProgressText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.mlbl_ProgressText.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.mlbl_ProgressText.Location = new System.Drawing.Point(168, 580);
-            this.mlbl_ProgressText.Name = "mlbl_ProgressText";
-            this.mlbl_ProgressText.Size = new System.Drawing.Size(343, 17);
-            this.mlbl_ProgressText.TabIndex = 18;
-            this.mlbl_ProgressText.Text = "PlayerNick";
-            this.mlbl_ProgressText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -295,7 +335,6 @@
         #endregion
 
         private MetroFramework.Components.MetroStyleManager MSM;
-        private MetroFramework.Controls.MetroTile metroTile1;
         private MetroFramework.Controls.MetroPanel mpnl_LeftMenu;
         private System.Windows.Forms.Button btn_Settings;
         private System.Windows.Forms.Button btn_Clan;
@@ -309,6 +348,9 @@
         private System.ComponentModel.BackgroundWorker bgw_LoadData;
         private MetroFramework.Controls.MetroProgressBar pgbar_Loading;
         private System.Windows.Forms.Label mlbl_ProgressText;
+        private System.Windows.Forms.Button btn_Refresh;
+        private System.Windows.Forms.Button btn_LangRu;
+        private System.Windows.Forms.Button btn_Lang;
     }
 }
 

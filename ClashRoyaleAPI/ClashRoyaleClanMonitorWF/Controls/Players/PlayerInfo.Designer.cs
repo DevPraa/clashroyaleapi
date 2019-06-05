@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.pnl_Number = new System.Windows.Forms.Panel();
+            this.lbl_Number = new System.Windows.Forms.Label();
             this.mlbl_NickName = new System.Windows.Forms.Label();
             this.mlbl_Tag = new System.Windows.Forms.Label();
             this.mlbl_Trophies = new System.Windows.Forms.Label();
-            this.lbl_Number = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lbl_donated = new System.Windows.Forms.Label();
             this.lbl_received = new System.Windows.Forms.Label();
@@ -41,16 +41,15 @@
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pbox_League = new System.Windows.Forms.PictureBox();
             this.pbox_lvl = new System.Windows.Forms.PictureBox();
-           
             this.pbox_Trophies = new System.Windows.Forms.PictureBox();
             this.mbtn_Show = new MetroFramework.Controls.MetroTile();
             this.btn_ShowDeck = new System.Windows.Forms.Button();
+            this.mlbl_lastSeen = new System.Windows.Forms.Label();
             this.pnl_Number.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_League)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_lvl)).BeginInit();
-            
             ((System.ComponentModel.ISupportInitialize)(this.pbox_Trophies)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,18 +61,33 @@
             this.pnl_Number.Location = new System.Drawing.Point(0, 0);
             this.pnl_Number.Margin = new System.Windows.Forms.Padding(0);
             this.pnl_Number.Name = "pnl_Number";
-            this.pnl_Number.Size = new System.Drawing.Size(25, 54);
+            this.pnl_Number.Size = new System.Drawing.Size(25, 70);
             this.pnl_Number.TabIndex = 16;
+            // 
+            // lbl_Number
+            // 
+            this.lbl_Number.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_Number.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbl_Number.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_Number.ForeColor = System.Drawing.Color.White;
+            this.lbl_Number.Location = new System.Drawing.Point(-11, -1);
+            this.lbl_Number.Name = "lbl_Number";
+            this.lbl_Number.Size = new System.Drawing.Size(46, 72);
+            this.lbl_Number.TabIndex = 0;
+            this.lbl_Number.Text = "10";
+            this.lbl_Number.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // mlbl_NickName
             // 
             this.mlbl_NickName.AutoSize = true;
             this.mlbl_NickName.BackColor = System.Drawing.Color.White;
             this.mlbl_NickName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.mlbl_NickName.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.mlbl_NickName.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.mlbl_NickName.Location = new System.Drawing.Point(25, 2);
             this.mlbl_NickName.Name = "mlbl_NickName";
-            this.mlbl_NickName.Size = new System.Drawing.Size(74, 17);
+            this.mlbl_NickName.Size = new System.Drawing.Size(79, 16);
             this.mlbl_NickName.TabIndex = 17;
             this.mlbl_NickName.Text = "PlayerNick";
             // 
@@ -99,28 +113,13 @@
             this.mlbl_Trophies.TabIndex = 19;
             this.mlbl_Trophies.Text = "4025";
             // 
-            // lbl_Number
-            // 
-            this.lbl_Number.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_Number.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lbl_Number.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl_Number.ForeColor = System.Drawing.Color.White;
-            this.lbl_Number.Location = new System.Drawing.Point(-11, -1);
-            this.lbl_Number.Name = "lbl_Number";
-            this.lbl_Number.Size = new System.Drawing.Size(46, 56);
-            this.lbl_Number.TabIndex = 0;
-            this.lbl_Number.Text = "10";
-            this.lbl_Number.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(189)))), ((int)(((byte)(214)))));
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(201, 16);
+            this.label2.Location = new System.Drawing.Point(201, 25);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(27, 16);
             this.label2.TabIndex = 1;
@@ -132,7 +131,7 @@
             this.lbl_donated.AutoSize = true;
             this.lbl_donated.BackColor = System.Drawing.Color.White;
             this.lbl_donated.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl_donated.Location = new System.Drawing.Point(257, 3);
+            this.lbl_donated.Location = new System.Drawing.Point(257, 12);
             this.lbl_donated.Name = "lbl_donated";
             this.lbl_donated.Size = new System.Drawing.Size(32, 16);
             this.lbl_donated.TabIndex = 23;
@@ -143,7 +142,7 @@
             this.lbl_received.AutoSize = true;
             this.lbl_received.BackColor = System.Drawing.Color.White;
             this.lbl_received.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl_received.Location = new System.Drawing.Point(302, 3);
+            this.lbl_received.Location = new System.Drawing.Point(302, 12);
             this.lbl_received.Name = "lbl_received";
             this.lbl_received.Size = new System.Drawing.Size(32, 16);
             this.lbl_received.TabIndex = 25;
@@ -164,7 +163,7 @@
             // 
             this.pictureBox10.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox10.Image = global::ClashRoyaleClanMonitorWF.Properties.Resources.cardsDown;
-            this.pictureBox10.Location = new System.Drawing.Point(286, 3);
+            this.pictureBox10.Location = new System.Drawing.Point(286, 12);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(16, 16);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -175,7 +174,7 @@
             // 
             this.pictureBox9.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox9.Image = global::ClashRoyaleClanMonitorWF.Properties.Resources.cardsUp;
-            this.pictureBox9.Location = new System.Drawing.Point(241, 3);
+            this.pictureBox9.Location = new System.Drawing.Point(241, 12);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(16, 16);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -186,7 +185,7 @@
             // 
             this.pbox_League.BackColor = System.Drawing.Color.Transparent;
             this.pbox_League.Image = global::ClashRoyaleClanMonitorWF.Properties.Resources.league_9;
-            this.pbox_League.Location = new System.Drawing.Point(143, 2);
+            this.pbox_League.Location = new System.Drawing.Point(143, 11);
             this.pbox_League.Name = "pbox_League";
             this.pbox_League.Size = new System.Drawing.Size(41, 49);
             this.pbox_League.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -197,13 +196,12 @@
             // 
             this.pbox_lvl.BackColor = System.Drawing.Color.Transparent;
             this.pbox_lvl.Image = global::ClashRoyaleClanMonitorWF.Properties.Resources.level_big2;
-            this.pbox_lvl.Location = new System.Drawing.Point(190, 2);
+            this.pbox_lvl.Location = new System.Drawing.Point(190, 11);
             this.pbox_lvl.Name = "pbox_lvl";
             this.pbox_lvl.Size = new System.Drawing.Size(48, 50);
             this.pbox_lvl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbox_lvl.TabIndex = 20;
             this.pbox_lvl.TabStop = false;
-            
             // 
             // pbox_Trophies
             // 
@@ -223,7 +221,7 @@
             this.mbtn_Show.Dock = System.Windows.Forms.DockStyle.Right;
             this.mbtn_Show.Location = new System.Drawing.Point(678, 0);
             this.mbtn_Show.Name = "mbtn_Show";
-            this.mbtn_Show.Size = new System.Drawing.Size(26, 54);
+            this.mbtn_Show.Size = new System.Drawing.Size(26, 70);
             this.mbtn_Show.Style = MetroFramework.MetroColorStyle.Red;
             this.mbtn_Show.TabIndex = 3;
             this.mbtn_Show.TileImage = global::ClashRoyaleClanMonitorWF.Properties.Resources.eye_white;
@@ -240,7 +238,7 @@
             this.btn_ShowDeck.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(17)))), ((int)(((byte)(65)))));
             this.btn_ShowDeck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ShowDeck.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_ShowDeck.Location = new System.Drawing.Point(241, 23);
+            this.btn_ShowDeck.Location = new System.Drawing.Point(241, 32);
             this.btn_ShowDeck.Name = "btn_ShowDeck";
             this.btn_ShowDeck.Size = new System.Drawing.Size(93, 29);
             this.btn_ShowDeck.TabIndex = 27;
@@ -248,11 +246,23 @@
             this.btn_ShowDeck.UseVisualStyleBackColor = true;
             this.btn_ShowDeck.Click += new System.EventHandler(this.btn_ShowDeck_Click);
             // 
+            // mlbl_lastSeen
+            // 
+            this.mlbl_lastSeen.AutoSize = true;
+            this.mlbl_lastSeen.BackColor = System.Drawing.Color.White;
+            this.mlbl_lastSeen.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.mlbl_lastSeen.Location = new System.Drawing.Point(25, 54);
+            this.mlbl_lastSeen.Name = "mlbl_lastSeen";
+            this.mlbl_lastSeen.Size = new System.Drawing.Size(53, 16);
+            this.mlbl_lastSeen.TabIndex = 28;
+            this.mlbl_lastSeen.Text = "lastSeen";
+            // 
             // PlayerInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.mlbl_lastSeen);
             this.Controls.Add(this.btn_ShowDeck);
             this.Controls.Add(this.lbl_Position);
             this.Controls.Add(this.lbl_received);
@@ -266,19 +276,18 @@
             this.Controls.Add(this.mlbl_Tag);
             this.Controls.Add(this.mlbl_NickName);
             this.Controls.Add(this.pnl_Number);
-            
             this.Controls.Add(this.pbox_Trophies);
             this.Controls.Add(this.mbtn_Show);
             this.MaximumSize = new System.Drawing.Size(750, 400);
-            this.MinimumSize = new System.Drawing.Size(500, 56);
+            this.MinimumSize = new System.Drawing.Size(500, 70);
             this.Name = "PlayerInfo";
-            this.Size = new System.Drawing.Size(704, 54);
+            this.Size = new System.Drawing.Size(704, 70);
             this.Load += new System.EventHandler(this.PlayerInfo_Load);
             this.pnl_Number.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_League)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbox_lvl)).EndInit();            
+            ((System.ComponentModel.ISupportInitialize)(this.pbox_lvl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_Trophies)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -310,5 +319,6 @@
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.Label lbl_Position;
         private System.Windows.Forms.Button btn_ShowDeck;
+        private System.Windows.Forms.Label mlbl_lastSeen;
     }
 }

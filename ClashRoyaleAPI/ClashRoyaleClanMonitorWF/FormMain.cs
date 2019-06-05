@@ -40,16 +40,57 @@ namespace ClashRoyaleClanMonitorWF
         {
             try
             {
+                if (!Directory.Exists(Program.PathImgCards))
+                {
+                    Directory.CreateDirectory(Program.PathImgCards);
+                }
                 string[] ImgTmp = Directory.GetFiles(Program.PathImgCards);
+
+                #region Загрузка картинок из API
+                Cards CardList = new Cards();                
+                var img = CardList.GetAllCards();
+                bool IsLoad = false;
+                foreach (var item in img.items)
+                {
+                    if (ImgTmp.Length == 0)
+                    {
+                        IsLoad = true;
+                    }
+                    for (int i = 0; i < ImgTmp.Length; i++)
+                    {
+                        if (item.name == Path.GetFileName(ImgTmp[i].Replace(".png", "")))
+                        {
+                            IsLoad = false;
+                            break;
+                        }
+                        IsLoad = true;
+                    }
+                    if (IsLoad)
+                    {
+                        using (WebClient client = new WebClient())
+                        {
+                            client.DownloadFile(item.iconUrls.medium, Path.Combine(Program.PathImgCards, $"{item.name}.png"));
+                            ImgTmp = Directory.GetFiles(Program.PathImgCards);
+                        }
+                    }
+                    IsLoad = false;
+                }
+                #endregion
+
+                
+
                 Program.ImgCards = new Models.LocalResource.ImageCardsOfDisk[ImgTmp.Length];
                 for (int i = 0; i < ImgTmp.Length; i++)
                 {
-                    Program.ImgCards[i] = new Models.LocalResource.ImageCardsOfDisk() { Img = Image.FromFile(ImgTmp[i]), Name = Path.GetFileNameWithoutExtension(ImgTmp[i]) };
+                    string CardName = Path.GetFileNameWithoutExtension(ImgTmp[i]);
+                    Program.ImgCards[i] = new Models.LocalResource.ImageCardsOfDisk() { Img = Image.FromFile(ImgTmp[i]), Name = CardName, };
                 }
+                //CardHelper.GenerateXML(Program.ImgCards);
+                LocalizationManager.Localize(Enums.Language.Ru, this);
+                Program.LocalLanguage = Enums.Language.Ru;
             }
             catch (Exception e)
             {
-
                 //throw;
             }
             //bgw_LoadData.ReportProgress(10, "Идет загрузка статических ресурсов...");
@@ -62,27 +103,6 @@ namespace ClashRoyaleClanMonitorWF
         {
             try
             {
-                #region Загрузка картинок карт
-                //Core core = new Core();
-                //Core.Init(mtb_Token.Text, ClashRoyaleAPI.Enums.VersionAPI.v1);
-                //Cards CardList = new Cards();
-                //string PathImgCards = Path.Combine(Application.StartupPath, "Images", "Cards");
-                //if (!Directory.Exists(PathImgCards))
-                //{
-                //    Directory.CreateDirectory(PathImgCards);
-                //}
-                //var img = CardList.GetAllCards();
-                //string localFilename = @"c:\localpath\tofile.jpg";
-                //foreach (var item in img.items)
-                //{
-                //    using (WebClient client = new WebClient())
-                //    {
-                //        client.DownloadFile(item.iconUrls.medium,Path.Combine(PathImgCards, $"{item.name}.png"));
-                //    }
-                //} 
-                #endregion
-
-
                 ReportProgress(20, "Идет загрузка информации о игроке...");
                 Program.MyPlayerProfile = await GetPlayerInfoWF(ClashRoyaleClanMonitorWF.Properties.Settings.Default.PlayerID);
                 ReportProgress(30, "Идет загрузка информации о предстоящих сундуках...");
@@ -91,7 +111,6 @@ namespace ClashRoyaleClanMonitorWF
                 //ClashRoyaleClanMonitorWF.Controls.Players.PlayerInfo playerInfo = new ClashRoyaleClanMonitorWF.Controls.Players.PlayerInfo(0, MyPlayerProfile, MyChests);
                 ReportProgress(40, "Идет загрузка информации о войнах...");
                 Program.ClanWarLog = await GetClanWarLogWF(Program.MyPlayerProfile.clan.tag);
-
                 ReportProgress(50, "Идет загрузка информации о клане...");
                 Program.ClanMembers = await GetClanMembersInfoWF(Program.MyPlayerProfile.clan.tag); //clan.GetClanMembers(PlayerInfo.clan.tag);
                 int value = (100 - Program.ClanMembers.items.Length);
@@ -101,6 +120,8 @@ namespace ClashRoyaleClanMonitorWF
                 for (int i = 0; i < Program.ClanMembers.items.Length; i++)
                 {
                     Program.ClanMembersDetailInfo[i] = await GetPlayerInfoWF(Program.ClanMembers.items[i].tag);
+                    Program.ClanMembersDetailInfo[i].trophies = Program.ClanMembers.items[i].trophies;
+                    Program.ClanMembersDetailInfo[i].lastSeen = Program.ClanMembers.items[i].lastSeen;
                     Program.ClanMembersChests[i] = await GetChestsInfoWF(Program.ClanMembers.items[i].tag);
                     ReportProgress(value, $"Идет загрузка информации о {Program.ClanMembers.items[i].name}...");
                     value++;
@@ -131,42 +152,6 @@ namespace ClashRoyaleClanMonitorWF
                     clanCoreUC.Dock = DockStyle.Fill;
                 }
                 settingsUC.Dock = DockStyle.Fill;
-
-                //GC.Collect();
-                //pgbar_Loading.ProgressBarStyle = ProgressBarStyle.Marquee;
-                //var T6 = clan.GetClanWarLog(PlayerInfo.clan.tag);
-                ////var T7 = clan.GetClanCurrentWar(PlayerInfo.clan.tag);
-                //List<Player> tmpWarlogPlayers = new List<Player>();
-                //foreach (var item in ListPlayer)
-                //{
-                //    var ttt = T6.items[1].participants.Where(c => c.name == item.name);
-                //    if (ttt == null)
-                //    {
-                //        tmpWarlogPlayers.Add(item);
-                //    }
-                //    var ttt2 = T6.items[2].participants.Where(c => c.name == item.name);
-                //    if (ttt2 == null)
-                //    {
-                //        tmpWarlogPlayers.Add(item);
-                //    }
-
-                //    //foreach (var item2 in T6.items)
-                //    //{
-                //    //    foreach (var item3 in item2.participants)
-                //    //    {
-                //    //        if (item.name == item3.name)
-                //    //        {
-                //    //            break;
-                //    //        }
-
-                //    //    }
-                //    //    //item2.participants
-                //    //}
-                //}
-                //var T6 = clan.GetClanWarLog("2LUGU2UY");
-                //var T7 = clan.GetClanCurrentWar("2LUGU2UY");
-                //});
-                //bgw_LoadData.ReportProgress(100, "Вся необходимая информация загружена...");
             }
             catch (ClashRoyaleAPIException e)
             {
@@ -365,6 +350,8 @@ namespace ClashRoyaleClanMonitorWF
             //bgw_LoadData.RunWorkerAsync();
         }
 
+
+
         public async Task<Player> GetPlayerInfoWF(string ID)
         {
             return await Task.Factory.StartNew(() => { return player.GetPlayerInfo(ID); });
@@ -387,7 +374,6 @@ namespace ClashRoyaleClanMonitorWF
             return await Task.Factory.StartNew(() => {
                 return clan.GetClanInfo(ID);
             });
-
         }
 
         public async Task<ClashRoyaleAPI.Models.Clans.Warlog> GetClanWarLogWF(string ID)
@@ -395,8 +381,8 @@ namespace ClashRoyaleClanMonitorWF
             return await Task.Factory.StartNew(() => {
                 return clan.GetClanWarLog(ID);
             });
-
         }
+
         private void ReportProgress(int value, string text)
         {
             pgbar_Loading.ProgressBarStyle = ProgressBarStyle.Continuous;
@@ -404,5 +390,9 @@ namespace ClashRoyaleClanMonitorWF
             mlbl_ProgressText.Text = text;
         }
 
+        private void btn_Refresh_Click(object sender, EventArgs e)
+        {
+            LoadInfo();
+        }
     }
 }

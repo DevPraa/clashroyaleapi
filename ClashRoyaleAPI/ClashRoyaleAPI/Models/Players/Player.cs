@@ -15,6 +15,7 @@ namespace ClashRoyaleAPI.Models.Players
         public string name { get; set; } //public int Anakom  ,
         public int expLevel { get; set; } //10,
         public int trophies { get; set; } //4074,
+        public string lastSeen { get; set; } //: "20190512T235522.000Z",
         public int bestTrophies { get; set; } //4074,
         public int wins { get; set; } //380,
         public int losses { get; set; } //324,

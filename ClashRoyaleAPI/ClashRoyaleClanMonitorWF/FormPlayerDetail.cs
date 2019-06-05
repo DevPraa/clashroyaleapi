@@ -191,6 +191,7 @@ namespace ClashRoyaleClanMonitorWF
                 case "Giant Chest": return Resources.giant_chest;
                 case "Legendary Chest": return Resources.legendary_chest;
                 case "Super Magical Chest": return Resources.super_magical_chest;
+                case "Mega Lightning Chest": return Resources.super_lightning_chest;
                 default:
                     return Resources.silver_chest;
             }

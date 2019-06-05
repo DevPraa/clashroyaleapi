@@ -1,9 +1,12 @@
-﻿using ClashRoyaleClanMonitorWF.Enums;
+﻿using ClashRoyaleClanMonitorWF.Controls.Cards;
+using ClashRoyaleClanMonitorWF.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
+using static ClashRoyaleClanMonitorWF.Models.LocalResource;
 
 namespace ClashRoyaleClanMonitorWF.Utils
 {
@@ -61,7 +64,8 @@ namespace ClashRoyaleClanMonitorWF.Utils
                 case "Rocket":
                 case "Elixir Collector":
                 case "Barbarian Hut":
-                case "Three Musketeers": return CardRare.Rare;
+                case "Three Musketeers":
+                case "Earthquake": return CardRare.Rare;
 
                 case "Mirror":
                 case "Barbarian Barrel":
@@ -209,7 +213,8 @@ namespace ClashRoyaleClanMonitorWF.Utils
                 case "Heal":
                 case "Giant Snowball":
                 case "Zap":
-                case "Arrows": return CardType.Spell;
+                case "Arrows":
+                case "Earthquake": return CardType.Spell;
 
                 default:
                     return CardType.Unknown;
@@ -257,7 +262,8 @@ namespace ClashRoyaleClanMonitorWF.Utils
                 case "Ice Wizard":
                 case "Bandit":
                 case "Princess":
-                case "Wall Breakers": return 3;
+                case "Wall Breakers":
+                case "Earthquake": return 3;
 
 
                 case "Mortar":
@@ -344,6 +350,29 @@ namespace ClashRoyaleClanMonitorWF.Utils
                 default:
                     return 0;
             }
+        }
+
+        public static void GenerateXML(ImageCardsOfDisk[] Cards)
+        {
+            XDocument xdoc = new XDocument(
+                new XElement("Translation",
+                    new XElement("Cards"
+                        )));
+
+            for (int i = 0; i < Cards.Length; i++)
+            {
+                xdoc.Element("Translation").Element("Cards").Add(
+                new XElement("Card",
+                            new XAttribute("Name", Cards[i].Name),
+                            new XAttribute("Rare", Cards[i].Rare),
+                            new XAttribute("Cost", Cards[i].Cost),
+                            new XAttribute("Type", Cards[i].Type),
+                            new XAttribute("StartLvl", Cards[i].StartLvl),
+                            new XAttribute("RusName", "")
+                            )); 
+            }
+            
+            xdoc.Save("Cards_En.xml");
         }
     }
 }

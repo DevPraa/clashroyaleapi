@@ -26,7 +26,6 @@ namespace ClashRoyaleAPI.BL
             }
             catch (ClashRoyaleAPIException ex)
             {
-                //Console.WriteLine(ex.ToString());
                 throw ex;
             }
         }
@@ -39,7 +38,6 @@ namespace ClashRoyaleAPI.BL
             }
             catch (Exception ex)
             {
-                //Console.WriteLine(ex.ToString());
                 throw ex;
             }
         }

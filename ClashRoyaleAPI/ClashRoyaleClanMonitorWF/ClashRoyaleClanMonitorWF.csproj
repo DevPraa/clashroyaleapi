@@ -68,6 +68,12 @@
     <Compile Include="Controls\Clans\ClanCoreUC.Designer.cs">
       <DependentUpon>ClanCoreUC.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Clans\ClanInfoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Clans\ClanInfoControl.Designer.cs">
+      <DependentUpon>ClanInfoControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Main\CardSerchInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -100,6 +106,7 @@
     </Compile>
     <Compile Include="Enums\CardRare.cs" />
     <Compile Include="Enums\CardType.cs" />
+    <Compile Include="Enums\Language.cs" />
     <Compile Include="Enums\TypeCardSort.cs" />
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
@@ -119,11 +126,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\CardHelper.cs" />
     <Compile Include="Utils\ControlHelper.cs" />
+    <Compile Include="Utils\DateConverter.cs" />
+    <Compile Include="Utils\EnumConverter.cs" />
+    <Compile Include="Utils\LocalizationManager.cs" />
     <EmbeddedResource Include="Controls\Cards\CardInfoUC.resx">
       <DependentUpon>CardInfoUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Clans\ClanCoreUC.resx">
       <DependentUpon>ClanCoreUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Clans\ClanInfoControl.resx">
+      <DependentUpon>ClanInfoControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Main\CardSerchInfo.resx">
       <DependentUpon>CardSerchInfo.cs</DependentUpon>
@@ -289,6 +302,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\eye_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\super-lightning-chest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cards.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clan-trophies.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ru.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\en.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ru24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\en24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

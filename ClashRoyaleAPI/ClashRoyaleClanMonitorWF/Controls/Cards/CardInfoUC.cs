@@ -51,37 +51,42 @@ namespace ClashRoyaleClanMonitorWF.Controls.Cards
                     MaxLvl = 12;
                     if (Cardlvl == 13)
                     {
-                        return 250;
+                        return 0;
                     }
                     break;
                 case CardRare.Rare:
                     MaxLvl = 10;
                     if (Cardlvl == 13)
                     {
-                        return 50;
+                        return 0;
                     }
                     break;
                 case CardRare.Epic:
                     MaxLvl = 7;
                     if (Cardlvl == 13)
                     {
-                        return 10;
+                        return 0;
                     }
                     break;
                 case CardRare.Legendary:
                     MaxLvl = 4;
                     if (Cardlvl == 13)
                     {
-                        return 1;
+                        return 0;
                     }
                     break;
                 case CardRare.Unknown:
+                    MaxLvl = 13;
+                    if (Cardlvl == 13)
+                    {
+                        return 0;
+                    }
                     break;
                 default:
                     MaxLvl = 0;
                     if (Cardlvl == 13)
                     {
-                        return 250;
+                        return 0;
                     }
                     break;
             }            
