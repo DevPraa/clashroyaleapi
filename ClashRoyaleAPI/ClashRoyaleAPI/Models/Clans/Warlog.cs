@@ -37,7 +37,8 @@ namespace ClashRoyaleAPI.Models.Clans
         public int? battlesPlayed { get; set; } //0,
         public int? wins { get; set; } //0
         public int? collectionDayBattlesPlayed { get; set; }
-}
+        public int? numberOfBattles { get; set; }
+    }
 
     [Serializable]
     public class Standing

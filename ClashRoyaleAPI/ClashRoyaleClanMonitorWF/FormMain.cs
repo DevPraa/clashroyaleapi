@@ -104,25 +104,26 @@ namespace ClashRoyaleClanMonitorWF
             try
             {
                 ReportProgress(20, "Идет загрузка информации о игроке...");
-                Program.MyPlayerProfile = await GetPlayerInfoWF(ClashRoyaleClanMonitorWF.Properties.Settings.Default.PlayerID);
+                Program.MyPlayerProfile = await player.GetPlayerInfoAsync(ClashRoyaleClanMonitorWF.Properties.Settings.Default.PlayerID);
                 ReportProgress(30, "Идет загрузка информации о предстоящих сундуках...");
-                Program.MyChests = await GetChestsInfoWF(Program.MyPlayerProfile.tag);//player.GetUpcomingChestsPlayer(PlayerInfo.tag);
-                Program.ClanInfo = await GetClanInfoWF(Program.MyPlayerProfile.clan.tag);
+                Program.MyChests = await player.GetChestsInfoAsync(Program.MyPlayerProfile.tag);//player.GetUpcomingChestsPlayer(PlayerInfo.tag);
+                Program.ClanInfo = await clan.GetClanInfoAsync(Program.MyPlayerProfile.clan.tag);
                 //ClashRoyaleClanMonitorWF.Controls.Players.PlayerInfo playerInfo = new ClashRoyaleClanMonitorWF.Controls.Players.PlayerInfo(0, MyPlayerProfile, MyChests);
                 ReportProgress(40, "Идет загрузка информации о войнах...");
-                Program.ClanWarLog = await GetClanWarLogWF(Program.MyPlayerProfile.clan.tag);
+                Program.ClanCurrentWar = await clan.GetCurrentClanWarAsync(Program.MyPlayerProfile.clan.tag);
+                Program.ClanWarLog = await clan.GetClanWarLogAsync(Program.MyPlayerProfile.clan.tag);
                 ReportProgress(50, "Идет загрузка информации о клане...");
-                Program.ClanMembers = await GetClanMembersInfoWF(Program.MyPlayerProfile.clan.tag); //clan.GetClanMembers(PlayerInfo.clan.tag);
+                Program.ClanMembers = await clan.GetClanMembersInfoAsync(Program.MyPlayerProfile.clan.tag); //clan.GetClanMembers(PlayerInfo.clan.tag);
                 int value = (100 - Program.ClanMembers.items.Length);
                 ReportProgress(value, "Идет загрузка информации о клане...");
                 Program.ClanMembersDetailInfo = new Player[Program.ClanMembers.items.Length];
                 Program.ClanMembersChests = new UpcomingChests[Program.ClanMembers.items.Length];
                 for (int i = 0; i < Program.ClanMembers.items.Length; i++)
                 {
-                    Program.ClanMembersDetailInfo[i] = await GetPlayerInfoWF(Program.ClanMembers.items[i].tag);
+                    Program.ClanMembersDetailInfo[i] = await player.GetPlayerInfoAsync(Program.ClanMembers.items[i].tag);
                     Program.ClanMembersDetailInfo[i].trophies = Program.ClanMembers.items[i].trophies;
                     Program.ClanMembersDetailInfo[i].lastSeen = Program.ClanMembers.items[i].lastSeen;
-                    Program.ClanMembersChests[i] = await GetChestsInfoWF(Program.ClanMembers.items[i].tag);
+                    Program.ClanMembersChests[i] = await player.GetChestsInfoAsync(Program.ClanMembers.items[i].tag);
                     ReportProgress(value, $"Идет загрузка информации о {Program.ClanMembers.items[i].name}...");
                     value++;
                 }
@@ -320,7 +321,7 @@ namespace ClashRoyaleClanMonitorWF
 
         private void bgw_LoadData_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-           var t = e.Result;
+            var t = e.Result;
         }
 
         private void bgw_LoadData_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -332,8 +333,8 @@ namespace ClashRoyaleClanMonitorWF
         {
             try
             {
-                bgw_LoadData.ReportProgress(0,"Идет загрузка информации...");
-                
+                bgw_LoadData.ReportProgress(0, "Идет загрузка информации...");
+
             }
             catch (Exception)
             {
@@ -347,40 +348,6 @@ namespace ClashRoyaleClanMonitorWF
             ReportProgress(0, "Идет загрузка статических ресурсов");
             LoadStaticResource();
             LoadInfo();
-            //bgw_LoadData.RunWorkerAsync();
-        }
-
-
-
-        public async Task<Player> GetPlayerInfoWF(string ID)
-        {
-            return await Task.Factory.StartNew(() => { return player.GetPlayerInfo(ID); });
-        }
-
-        public async Task<UpcomingChests> GetChestsInfoWF(string ID)
-        {
-            return await Task.Factory.StartNew(() => { return player.GetUpcomingChestsPlayer(ID); });
-        }
-
-        public async Task<ClanMembers> GetClanMembersInfoWF(string ID)
-        {
-            return await Task.Factory.StartNew(() => {
-                return clan.GetClanMembers(ID);            
-            });
-        }
-
-        public async Task<ClashRoyaleAPI.Models.Clans.Clan> GetClanInfoWF(string ID)
-        {
-            return await Task.Factory.StartNew(() => {
-                return clan.GetClanInfo(ID);
-            });
-        }
-
-        public async Task<ClashRoyaleAPI.Models.Clans.Warlog> GetClanWarLogWF(string ID)
-        {
-            return await Task.Factory.StartNew(() => {
-                return clan.GetClanWarLog(ID);
-            });
         }
 
         private void ReportProgress(int value, string text)

@@ -26,8 +26,11 @@ namespace ClashRoyaleAPI.BL
             }
             catch (ClashRoyaleAPIException ex)
             {
-                //Console.WriteLine(ex.ToString());
                 throw ex;
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
     }

@@ -32,6 +32,7 @@ namespace ClashRoyaleClanMonitorWF
         public static CMC.ClanMembers ClanMembers;
         public static Player[] ClanMembersDetailInfo;
         public static UpcomingChests[] ClanMembersChests;
+        public static CMC.CurrentWar ClanCurrentWar;
         public static CMC.Warlog ClanWarLog;
         public static System.Xml.XmlNodeList LocalizationCard;
         public static Language LocalLanguage;

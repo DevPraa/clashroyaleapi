@@ -28,6 +28,10 @@ namespace ClashRoyaleAPI.BL
             {
                 throw ex;
             }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public UpcomingChests GetUpcomingChestsPlayer(string ID)
@@ -36,10 +40,24 @@ namespace ClashRoyaleAPI.BL
             {
                 return Base.ApiReqest<UpcomingChests>(_Url, ID.Replace("#", ""), "/upcomingchests");
             }
-            catch (Exception ex)
+            catch (ClashRoyaleAPIException ex)
             {
                 throw ex;
             }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public async Task<Player> GetPlayerInfoAsync(string ID)
+        {
+            return await Task.Factory.StartNew(() => { return GetPlayerInfo(ID); });
+        }
+
+        public async Task<UpcomingChests> GetChestsInfoAsync(string ID)
+        {
+            return await Task.Factory.StartNew(() => { return GetUpcomingChestsPlayer(ID); });
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using ClashRoyaleAPI.Models.Clans;
+﻿using ClashRoyaleAPI.Exceptions;
+using ClashRoyaleAPI.Models.Clans;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,9 +24,12 @@ namespace ClashRoyaleAPI.BL
             {
                 return  Base.ApiReqest<Clan>(_Url, ID: ID);
             }
-            catch (Exception ex)
+            catch (ClashRoyaleAPIException ex)
             {
-                //Console.WriteLine(ex.ToString());
+                throw ex;
+            }
+            catch
+            {
                 return null;
             }
         }
@@ -36,13 +40,15 @@ namespace ClashRoyaleAPI.BL
             {
                 return Base.ApiReqest<ClanMembers>(_Url, ID,"/members");
             }
-            catch (Exception ex)
+            catch (ClashRoyaleAPIException ex)
             {
-                //Console.WriteLine(ex.ToString());
+                throw ex;
+            }
+            catch
+            {
                 return null;
             }
         }
-
 
         public Warlog GetClanWarLog(string ID)
         {
@@ -50,9 +56,12 @@ namespace ClashRoyaleAPI.BL
             {
                 return Base.ApiReqest<Warlog>(_Url, ID, "/warlog");
             }
-            catch (Exception ex)
+            catch (ClashRoyaleAPIException ex)
             {
-                //Console.WriteLine(ex.ToString());
+                throw ex;
+            }
+            catch
+            {
                 return null;
             }
         }
@@ -63,11 +72,42 @@ namespace ClashRoyaleAPI.BL
             {
                 return Base.ApiReqest<CurrentWar>(_Url, ID, "/currentwar");
             }
-            catch (Exception ex)
+            catch (ClashRoyaleAPIException ex)
             {
-                //Console.WriteLine(ex.ToString());
+                throw ex;
+            }
+            catch
+            {
                 return null;
             }
+        }
+
+        public async Task<ClanMembers> GetClanMembersInfoAsync(string ID)
+        {
+            return await Task.Factory.StartNew(() => {
+                return GetClanMembers(ID);
+            });
+        }
+
+        public async Task<Clan> GetClanInfoAsync(string ID)
+        {
+            return await Task.Factory.StartNew(() => {
+                return GetClanInfo(ID);
+            });
+        }
+
+        public async Task<Warlog> GetClanWarLogAsync(string ID)
+        {
+            return await Task.Factory.StartNew(() => {
+                return GetClanWarLog(ID);
+            });
+        }
+
+        public async Task<CurrentWar> GetCurrentClanWarAsync(string ID)
+        {
+            return await Task.Factory.StartNew(() => {
+                return GetClanCurrentWar(ID);
+            });
         }
     }
 }

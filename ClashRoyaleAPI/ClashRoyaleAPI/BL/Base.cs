@@ -33,7 +33,7 @@ namespace ClashRoyaleAPI.BL
                         }
                     }
                 }
-                    return default(T);
+                return default(T);
             }
             catch (Exception ex)
             {
@@ -54,12 +54,11 @@ namespace ClashRoyaleAPI.BL
                         default:
                             break;
                     }
-                    //(innerException as WebException).Status = WebExceptionStatus.
                     throw new ClashRoyaleAPIException(message ?? ex.Message, ex);
                 }
                 else
                 {
-                    throw ex;
+                    throw;
                 }                
             }
         }
@@ -68,7 +67,7 @@ namespace ClashRoyaleAPI.BL
         {
             try
             {
-                var webRequest = System.Net.HttpWebRequest.Create(_Url);//P2RQGRP9G
+                var webRequest = System.Net.HttpWebRequest.Create(_Url);
                 if (webRequest != null)
                 {
                     webRequest.Method = "GET";
@@ -106,7 +105,6 @@ namespace ClashRoyaleAPI.BL
                         default:
                             break;
                     }
-                    //(innerException as WebException).Status = WebExceptionStatus.
                 }
                 throw new ClashRoyaleAPIException(message ?? ex.Message, ex);
             }
