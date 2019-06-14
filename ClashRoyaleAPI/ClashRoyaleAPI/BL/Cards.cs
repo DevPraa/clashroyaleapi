@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ClashRoyaleAPI.BL
 {
-    public class Cards
+    public class Cards : Base
     {
         string _Url;
         public Cards()
@@ -22,7 +22,7 @@ namespace ClashRoyaleAPI.BL
         {
             try
             {
-                return Base.ApiReqest<AllCards>(_Url);
+                return ApiReqest<AllCards>(_Url);
             }
             catch (ClashRoyaleAPIException ex)
             {

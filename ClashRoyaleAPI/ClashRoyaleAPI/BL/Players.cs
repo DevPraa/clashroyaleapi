@@ -10,7 +10,7 @@ using System.Web.Script.Serialization;
 
 namespace ClashRoyaleAPI.BL
 {
-    public class Players
+    public class Players : Base
     {
         string _Url;
         public Players()
@@ -22,7 +22,7 @@ namespace ClashRoyaleAPI.BL
         {
             try
             {
-                return Base.ApiReqest<Player>(_Url, ID: ID.Replace("#",""));
+                return ApiReqest<Player>(_Url, ID: ID.Replace("#",""));
             }
             catch (ClashRoyaleAPIException ex)
             {
@@ -38,7 +38,7 @@ namespace ClashRoyaleAPI.BL
         {
             try
             {
-                return Base.ApiReqest<UpcomingChests>(_Url, ID.Replace("#", ""), "/upcomingchests");
+                return ApiReqest<UpcomingChests>(_Url, ID.Replace("#", ""), "/upcomingchests");
             }
             catch (ClashRoyaleAPIException ex)
             {

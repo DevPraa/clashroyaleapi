@@ -12,7 +12,7 @@ namespace ClashRoyaleAPI.BL
 {
     public class Base
     {
-        public static T ApiReqest <T>(string _Url, string ID, string Postfix=null)
+        protected T ApiReqest <T>(string _Url, string ID, string Postfix=null)
         {
             try
             {
@@ -63,7 +63,7 @@ namespace ClashRoyaleAPI.BL
             }
         }
 
-        public static T ApiReqest<T>(string _Url)
+        protected T ApiReqest<T>(string _Url)
         {
             try
             {

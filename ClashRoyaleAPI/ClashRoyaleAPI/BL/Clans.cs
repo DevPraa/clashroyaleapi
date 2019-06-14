@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ClashRoyaleAPI.BL
 {
-    public class Clans
+    public class Clans : Base
     {
         string _Url;
         public Clans()
@@ -22,7 +22,7 @@ namespace ClashRoyaleAPI.BL
         {
             try
             {
-                return  Base.ApiReqest<Clan>(_Url, ID: ID);
+                return  ApiReqest<Clan>(_Url, ID: ID);
             }
             catch (ClashRoyaleAPIException ex)
             {
@@ -38,7 +38,7 @@ namespace ClashRoyaleAPI.BL
         {
             try
             {
-                return Base.ApiReqest<ClanMembers>(_Url, ID,"/members");
+                return ApiReqest<ClanMembers>(_Url, ID,"/members");
             }
             catch (ClashRoyaleAPIException ex)
             {
@@ -54,7 +54,7 @@ namespace ClashRoyaleAPI.BL
         {
             try
             {
-                return Base.ApiReqest<Warlog>(_Url, ID, "/warlog");
+                return ApiReqest<Warlog>(_Url, ID, "/warlog");
             }
             catch (ClashRoyaleAPIException ex)
             {
@@ -70,7 +70,7 @@ namespace ClashRoyaleAPI.BL
         {
             try
             {
-                return Base.ApiReqest<CurrentWar>(_Url, ID, "/currentwar");
+                return ApiReqest<CurrentWar>(_Url, ID, "/currentwar");
             }
             catch (ClashRoyaleAPIException ex)
             {
