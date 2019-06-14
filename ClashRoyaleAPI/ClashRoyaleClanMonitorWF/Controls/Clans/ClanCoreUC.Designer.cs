@@ -31,13 +31,12 @@ namespace ClashRoyaleClanMonitorWF.Controls.Clans
         /// </summary>
         private void InitializeComponent()
         {
-
-                this.Tile = new System.Windows.Forms.Label();
+            this.Tile = new System.Windows.Forms.Label();
             this.MainTabControl = new MetroFramework.Controls.MetroTabControl();
             this.InformationTPage = new MetroFramework.Controls.MetroTabPage();
             this.PlayersTPage = new MetroFramework.Controls.MetroTabPage();
-            this.WarTPage = new MetroFramework.Controls.MetroTabPage();
             this.FLP_ClanMembers = new System.Windows.Forms.FlowLayoutPanel();
+            this.WarTPage = new MetroFramework.Controls.MetroTabPage();
             this.MainTabControl.SuspendLayout();
             this.PlayersTPage.SuspendLayout();
             this.SuspendLayout();
@@ -65,7 +64,7 @@ namespace ClashRoyaleClanMonitorWF.Controls.Clans
             this.MainTabControl.Controls.Add(this.WarTPage);
             this.MainTabControl.Location = new System.Drawing.Point(0, 34);
             this.MainTabControl.Name = "MainTabControl";
-            this.MainTabControl.SelectedIndex = 1;
+            this.MainTabControl.SelectedIndex = 2;
             this.MainTabControl.Size = new System.Drawing.Size(689, 330);
             this.MainTabControl.Style = MetroFramework.MetroColorStyle.Red;
             this.MainTabControl.TabIndex = 8;
@@ -105,6 +104,17 @@ namespace ClashRoyaleClanMonitorWF.Controls.Clans
             this.PlayersTPage.VerticalScrollbarHighlightOnWheel = false;
             this.PlayersTPage.VerticalScrollbarSize = 0;
             // 
+            // FLP_ClanMembers
+            // 
+            this.FLP_ClanMembers.AutoScroll = true;
+            this.FLP_ClanMembers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FLP_ClanMembers.Location = new System.Drawing.Point(0, 0);
+            this.FLP_ClanMembers.Margin = new System.Windows.Forms.Padding(0);
+            this.FLP_ClanMembers.Name = "FLP_ClanMembers";
+            this.FLP_ClanMembers.Size = new System.Drawing.Size(681, 288);
+            this.FLP_ClanMembers.TabIndex = 2;
+            this.FLP_ClanMembers.SizeChanged += new System.EventHandler(this.flowLayoutPanel1_SizeChanged);
+            // 
             // WarTPage
             // 
             this.WarTPage.BackColor = System.Drawing.Color.White;
@@ -116,21 +126,10 @@ namespace ClashRoyaleClanMonitorWF.Controls.Clans
             this.WarTPage.Name = "WarTPage";
             this.WarTPage.Size = new System.Drawing.Size(681, 288);
             this.WarTPage.TabIndex = 2;
-            this.WarTPage.Text = "Война";
+            this.WarTPage.Text = "История войн";
             this.WarTPage.VerticalScrollbarBarColor = false;
             this.WarTPage.VerticalScrollbarHighlightOnWheel = false;
             this.WarTPage.VerticalScrollbarSize = 0;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.FLP_ClanMembers.AutoScroll = true;
-            this.FLP_ClanMembers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FLP_ClanMembers.Location = new System.Drawing.Point(0, 0);
-            this.FLP_ClanMembers.Margin = new System.Windows.Forms.Padding(0);
-            this.FLP_ClanMembers.Name = "flowLayoutPanel1";
-            this.FLP_ClanMembers.Size = new System.Drawing.Size(681, 288);
-            this.FLP_ClanMembers.TabIndex = 2;
-            this.FLP_ClanMembers.SizeChanged += new System.EventHandler(this.flowLayoutPanel1_SizeChanged);
             // 
             // ClanCoreUC
             // 
@@ -143,7 +142,7 @@ namespace ClashRoyaleClanMonitorWF.Controls.Clans
             this.MainTabControl.ResumeLayout(false);
             this.PlayersTPage.ResumeLayout(false);
             this.ResumeLayout(false);
-            
+
         }
 
         #endregion

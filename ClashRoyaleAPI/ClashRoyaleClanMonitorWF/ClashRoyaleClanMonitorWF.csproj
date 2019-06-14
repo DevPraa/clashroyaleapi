@@ -74,6 +74,12 @@
     <Compile Include="Controls\Clans\ClanInfoControl.Designer.cs">
       <DependentUpon>ClanInfoControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Clans\ClanWarHistory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Clans\ClanWarHistory.Designer.cs">
+      <DependentUpon>ClanWarHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Main\CardSerchInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -137,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Clans\ClanInfoControl.resx">
       <DependentUpon>ClanInfoControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Clans\ClanWarHistory.resx">
+      <DependentUpon>ClanWarHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Main\CardSerchInfo.resx">
       <DependentUpon>CardSerchInfo.cs</DependentUpon>

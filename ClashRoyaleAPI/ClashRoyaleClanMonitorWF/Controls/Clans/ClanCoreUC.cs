@@ -38,7 +38,13 @@ namespace ClashRoyaleClanMonitorWF.Controls.Clans
             ClanInfoControl clanInfo = new ClanInfoControl();
             clanInfo.Dock = DockStyle.Fill;
             InformationTPage.Controls.Add(clanInfo);
+
+            ClanWarHistory clanWarHistory = new ClanWarHistory();
+            clanWarHistory.Dock = DockStyle.Fill;
+            WarTPage.Controls.Add(clanWarHistory);
+
             MainTabControl.SelectedTab = InformationTPage;
+
         }
 
         private void flowLayoutPanel1_SizeChanged(object sender, EventArgs e)
