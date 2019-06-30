@@ -339,5 +339,13 @@
   <ItemGroup>
     <None Include="Resources\en24.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Localization\Eng.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Localization\Ru.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
