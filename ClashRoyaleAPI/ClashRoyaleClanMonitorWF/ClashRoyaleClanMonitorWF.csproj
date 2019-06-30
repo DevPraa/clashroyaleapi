@@ -36,13 +36,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MetroFramework">
-      <HintPath>..\..\..\weighingapp\metroframework-modern-ui-master\MetroFramework\bin\Release\MetroFramework.dll</HintPath>
+      <HintPath>..\..\..\..\..\weighingapp\metroframework-modern-ui-master\MetroFramework\bin\Release\MetroFramework.dll</HintPath>
     </Reference>
     <Reference Include="MetroFramework.Design">
-      <HintPath>..\..\..\weighingapp\metroframework-modern-ui-master\MetroFramework.Design\bin\Release\MetroFramework.Design.dll</HintPath>
+      <HintPath>..\..\..\..\..\weighingapp\metroframework-modern-ui-master\MetroFramework.Design\bin\Release\MetroFramework.Design.dll</HintPath>
     </Reference>
     <Reference Include="MetroFramework.Fonts">
-      <HintPath>..\..\..\weighingapp\metroframework-modern-ui-master\MetroFramework.Fonts\bin\Release\MetroFramework.Fonts.dll</HintPath>
+      <HintPath>..\..\..\..\..\weighingapp\metroframework-modern-ui-master\MetroFramework.Fonts\bin\Release\MetroFramework.Fonts.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -179,6 +179,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -346,6 +347,7 @@
     <Content Include="Localization\Ru.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="MetroFramework.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
