@@ -91,7 +91,7 @@ namespace ClashRoyaleClanMonitorWF
             }
             catch (Exception e)
             {
-                //throw;
+                MetroFramework.MetroMessageBox.Show(this, e.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             //bgw_LoadData.ReportProgress(10, "Идет загрузка статических ресурсов...");
 
@@ -106,14 +106,13 @@ namespace ClashRoyaleClanMonitorWF
                 ReportProgress(20, "Идет загрузка информации о игроке...");
                 Program.MyPlayerProfile = await player.GetPlayerInfoAsync(ClashRoyaleClanMonitorWF.Properties.Settings.Default.PlayerID);
                 ReportProgress(30, "Идет загрузка информации о предстоящих сундуках...");
-                Program.MyChests = await player.GetChestsInfoAsync(Program.MyPlayerProfile.tag);//player.GetUpcomingChestsPlayer(PlayerInfo.tag);
-                Program.ClanInfo = await clan.GetClanInfoAsync(Program.MyPlayerProfile.clan.tag);
-                //ClashRoyaleClanMonitorWF.Controls.Players.PlayerInfo playerInfo = new ClashRoyaleClanMonitorWF.Controls.Players.PlayerInfo(0, MyPlayerProfile, MyChests);
+                Program.MyChests = await player.GetChestsInfoAsync(Program.MyPlayerProfile.tag);
+                Program.ClanInfo = await clan.GetClanInfoAsync(Program.MyPlayerProfile.clan.tag);                
                 ReportProgress(40, "Идет загрузка информации о войнах...");
                 Program.ClanCurrentWar = await clan.GetCurrentClanWarAsync(Program.MyPlayerProfile.clan.tag);
                 Program.ClanWarLog = await clan.GetClanWarLogAsync(Program.MyPlayerProfile.clan.tag);
                 ReportProgress(50, "Идет загрузка информации о клане...");
-                Program.ClanMembers = await clan.GetClanMembersInfoAsync(Program.MyPlayerProfile.clan.tag); //clan.GetClanMembers(PlayerInfo.clan.tag);
+                Program.ClanMembers = await clan.GetClanMembersInfoAsync(Program.MyPlayerProfile.clan.tag);
                 int value = (100 - Program.ClanMembers.items.Length);
                 ReportProgress(value, "Идет загрузка информации о клане...");
                 Program.ClanMembersDetailInfo = new Player[Program.ClanMembers.items.Length];
@@ -171,15 +170,11 @@ namespace ClashRoyaleClanMonitorWF
 
         private void btn_Main_Click(object sender, EventArgs e)
         {
-            //this.InvokeEx(() => {
             if (mainUC!=null)
             {
                 MainPanel.Controls.Clear();
                 MainPanel.Controls.Add(mainUC);
             }
-
-            //});
-            //MainPanel.Controls.Add(settingsUC);
         }
 
         private void btn_Clan_Click(object sender, EventArgs e)
@@ -189,9 +184,6 @@ namespace ClashRoyaleClanMonitorWF
                 MainPanel.Controls.Clear();
                 MainPanel.Controls.Add(clanCoreUC);
             }
-            //MainPanel.InvokeEx(new Action(() => {
-
-            //}));
         }
 
         private void btn_Settings_Click(object sender, EventArgs e)
@@ -201,9 +193,6 @@ namespace ClashRoyaleClanMonitorWF
                 MainPanel.Controls.Clear();
                 MainPanel.Controls.Add(settingsUC);
             }
-            //this.InvokeEx(() => {
-
-            //});
         }
 
         #region STYLES
@@ -336,14 +325,14 @@ namespace ClashRoyaleClanMonitorWF
                 bgw_LoadData.ReportProgress(0, "Идет загрузка информации...");
 
             }
-            catch (Exception)
+            catch
             {
 
             }
             e.Result = true;
         }
 
-        private async void FormMain_Load(object sender, EventArgs e)
+        private void FormMain_Load(object sender, EventArgs e)
         {
             ReportProgress(0, "Идет загрузка статических ресурсов");
             LoadStaticResource();
