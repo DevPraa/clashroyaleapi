@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Translation>
+  <Cards>
+    <Card Name="Archers" Rare="Common" Cost="3" Type="Troop" StartLvl="0" RusName="Лучницы" />
+    <Card Name="Arrows" Rare="Common" Cost="3" Type="Spell" StartLvl="0" RusName="Стрелы" />
+    <Card Name="Baby Dragon" Rare="Epic" Cost="4" Type="Troop" StartLvl="5" RusName="Дракончик" />
+    <Card Name="Balloon" Rare="Epic" Cost="5" Type="Troop" StartLvl="5" RusName="Шар" />
+    <Card Name="Bandit" Rare="Legendary" Cost="3" Type="Troop" StartLvl="8" RusName="Бандитка" />
+    <Card Name="Barbarian Barrel" Rare="Epic" Cost="2" Type="Spell" StartLvl="5" RusName="Варварская бочка" />
+    <Card Name="Barbarian Hut" Rare="Rare" Cost="7" Type="Building" StartLvl="2" RusName="Хижина варваров" />
+    <Card Name="Barbarians" Rare="Common" Cost="5" Type="Troop" StartLvl="0" RusName="Варвары" />
+    <Card Name="Bats" Rare="Common" Cost="2" Type="Troop" StartLvl="0" RusName="Мыши" />
+    <Card Name="Battle Ram" Rare="Rare" Cost="4" Type="Troop" StartLvl="2" RusName="Боевой таран" />
+    <Card Name="Bomb Tower" Rare="Rare" Cost="4" Type="Building" StartLvl="2" RusName="Башня бомбежка" />
+    <Card Name="Bomber" Rare="Common" Cost="3" Type="Troop" StartLvl="0" RusName="Подрывник" />
+    <Card Name="Bowler" Rare="Epic" Cost="5" Type="Troop" StartLvl="5" RusName="Вышибала" />
+    <Card Name="Cannon Cart" Rare="Epic" Cost="5" Type="Troop" StartLvl="5" RusName="Повозка с пушкой" />
+    <Card Name="Cannon" Rare="Common" Cost="3" Type="Building" StartLvl="0" RusName="Пушка" />
+    <Card Name="Clone" Rare="Epic" Cost="3" Type="Spell" StartLvl="5" RusName="Клон" />
+    <Card Name="Dark Prince" Rare="Epic" Cost="4" Type="Troop" StartLvl="5" RusName="Темный принц" />
+    <Card Name="Dart Goblin" Rare="Rare" Cost="3" Type="Troop" StartLvl="2" RusName="Гоблин с дротиками" />
+    <Card Name="Earthquake" Rare="Rare" Cost="3" Type="Spell" StartLvl="2" RusName="Землетрясение" />
+    <Card Name="Electro Dragon" Rare="Epic" Cost="5" Type="Troop" StartLvl="5" RusName="Электродракон" />
+    <Card Name="Electro Wizard" Rare="Legendary" Cost="4" Type="Troop" StartLvl="8" RusName="Громовержец" />
+    <Card Name="Elite Barbarians" Rare="Common" Cost="6" Type="Troop" StartLvl="0" RusName="Элитные варвары" />
+    <Card Name="Elixir Collector" Rare="Rare" Cost="6" Type="Building" StartLvl="2" RusName="Сборщик элексира" />
+    <Card Name="Executioner" Rare="Epic" Cost="5" Type="Troop" StartLvl="5" RusName="Палач" />
+    <Card Name="Fire Spirits" Rare="Common" Cost="2" Type="Troop" StartLvl="0" RusName="Огненные духи" />
+    <Card Name="Fireball" Rare="Rare" Cost="4" Type="Spell" StartLvl="2" RusName="Огненный шар" />
+    <Card Name="Flying Machine" Rare="Rare" Cost="4" Type="Troop" StartLvl="2" RusName="Летучка" />
+    <Card Name="Freeze" Rare="Epic" Cost="4" Type="Spell" StartLvl="5" RusName="Заморозка" />
+    <Card Name="Furnace" Rare="Rare" Cost="4" Type="Building" StartLvl="2" RusName="Печь" />
+    <Card Name="Giant Skeleton" Rare="Epic" Cost="6" Type="Troop" StartLvl="5" RusName="Гигантский скелет" />
+    <Card Name="Giant Snowball" Rare="Common" Cost="2" Type="Spell" StartLvl="0" RusName="Гигантский снежок" />
+    <Card Name="Giant" Rare="Rare" Cost="5" Type="Troop" StartLvl="2" RusName="Гигант" />
+    <Card Name="Goblin Barrel" Rare="Epic" Cost="3" Type="Spell" StartLvl="5" RusName="Гоблиская бочка" />
+    <Card Name="Goblin Cage" Rare="Rare" Cost="4" Type="Building" StartLvl="2" RusName="Клетка с гоблином" />
+    <Card Name="Goblin Gang" Rare="Common" Cost="3" Type="Troop" StartLvl="0" RusName="Банда гоблинов" />
+    <Card Name="Goblin Giant" Rare="Epic" Cost="6" Type="Troop" StartLvl="5" RusName="Гоблин-гигант" />
+    <Card Name="Goblin Hut" Rare="Rare" Cost="5" Type="Building" StartLvl="2" RusName="Хижина гоблинов" />
+    <Card Name="Goblins" Rare="Common" Cost="2" Type="Troop" StartLvl="0" RusName="Гоблины" />
+    <Card Name="Golem" Rare="Epic" Cost="8" Type="Troop" StartLvl="5" RusName="Голем" />
+    <Card Name="Graveyard" Rare="Legendary" Cost="5" Type="Spell" StartLvl="8" RusName="Кладбище" />
+    <Card Name="Guards" Rare="Epic" Cost="3" Type="Troop" StartLvl="5" RusName="Стражи" />
+    <Card Name="Heal" Rare="Rare" Cost="1" Type="Spell" StartLvl="2" RusName="Исцеление" />
+    <Card Name="Hog Rider" Rare="Rare" Cost="4" Type="Troop" StartLvl="2" RusName="Всадник на кабане" />
+    <Card Name="Hunter" Rare="Epic" Cost="4" Type="Troop" StartLvl="5" RusName="Охотник" />
+    <Card Name="Ice Golem" Rare="Rare" Cost="2" Type="Troop" StartLvl="2" RusName="Ледяной голем" />
+    <Card Name="Ice Spirit" Rare="Common" Cost="1" Type="Troop" StartLvl="0" RusName="Ледяной дух" />
+    <Card Name="Ice Wizard" Rare="Legendary" Cost="3" Type="Troop" StartLvl="8" RusName="Ледяной колдун" />
+    <Card Name="Inferno Dragon" Rare="Legendary" Cost="4" Type="Troop" StartLvl="8" RusName="Пламенный дракон" />
+    <Card Name="Inferno Tower" Rare="Rare" Cost="5" Type="Building" StartLvl="2" RusName="Адская башня" />
+    <Card Name="Knight" Rare="Common" Cost="3" Type="Troop" StartLvl="0" RusName="Рыцарь" />
+    <Card Name="Lava Hound" Rare="Legendary" Cost="7" Type="Troop" StartLvl="8" RusName="Адская гончая" />
+    <Card Name="Lightning" Rare="Epic" Cost="6" Type="Spell" StartLvl="5" RusName="Молния" />
+    <Card Name="Lumberjack" Rare="Legendary" Cost="4" Type="Troop" StartLvl="8" RusName="Дровосек" />
+    <Card Name="Magic Archer" Rare="Legendary" Cost="4" Type="Troop" StartLvl="8" RusName="Магический лучник" />
+    <Card Name="Mega Knight" Rare="Legendary" Cost="7" Type="Troop" StartLvl="8" RusName="Мегарыцарь" />
+    <Card Name="Mega Minion" Rare="Rare" Cost="3" Type="Troop" StartLvl="2" RusName="Мегаминьон" />
+    <Card Name="Miner" Rare="Legendary" Cost="3" Type="Troop" StartLvl="8" RusName="Шахтер" />
+    <Card Name="Mini P.E.K.K.A" Rare="Rare" Cost="4" Type="Troop" StartLvl="2" RusName="Мини-П.Е.К.К.А" />
+    <Card Name="Minion Horde" Rare="Common" Cost="5" Type="Troop" StartLvl="0" RusName="Орда миньонов" />
+    <Card Name="Minions" Rare="Common" Cost="3" Type="Troop" StartLvl="0" RusName="Миньоны" />
+    <Card Name="Mirror" Rare="Epic" Cost="1" Type="Spell" StartLvl="5" RusName="Зеркало" />
+    <Card Name="Mortar" Rare="Common" Cost="4" Type="Building" StartLvl="0" RusName="Мортира" />
+    <Card Name="Musketeer" Rare="Rare" Cost="4" Type="Troop" StartLvl="2" RusName="Мушкетер" />
+    <Card Name="Night Witch" Rare="Legendary" Cost="4" Type="Troop" StartLvl="8" RusName="Ночная ведьма" />
+    <Card Name="P.E.K.K.A" Rare="Epic" Cost="7" Type="Troop" StartLvl="5" RusName="П.Е.К.К.А" />
+    <Card Name="Poison" Rare="Epic" Cost="4" Type="Spell" StartLvl="5" RusName="Яд" />
+    <Card Name="Prince" Rare="Epic" Cost="5" Type="Troop" StartLvl="5" RusName="Принц" />
+    <Card Name="Princess" Rare="Legendary" Cost="3" Type="Troop" StartLvl="8" RusName="Принцесса" />
+    <Card Name="Rage" Rare="Epic" Cost="2" Type="Spell" StartLvl="5" RusName="Ярость" />
+    <Card Name="Ram Rider" Rare="Legendary" Cost="5" Type="Troop" StartLvl="8" RusName="Всадница на баране" />
+    <Card Name="Rascals" Rare="Common" Cost="5" Type="Troop" StartLvl="0" RusName="Разбоники" />
+    <Card Name="Rocket" Rare="Rare" Cost="6" Type="Spell" StartLvl="2" RusName="Ракета" />
+    <Card Name="Royal Ghost" Rare="Legendary" Cost="3" Type="Troop" StartLvl="8" RusName="Королевский призрак" />
+    <Card Name="Royal Giant" Rare="Common" Cost="6" Type="Troop" StartLvl="0" RusName="Королевский гигант" />
+    <Card Name="Royal Hogs" Rare="Rare" Cost="5" Type="Troop" StartLvl="2" RusName="Королевские кабаны" />
+    <Card Name="Royal Recruits" Rare="Common" Cost="7" Type="Troop" StartLvl="0" RusName="Королевские рекруты" />
+    <Card Name="Skeleton Army" Rare="Epic" Cost="3" Type="Troop" StartLvl="5" RusName="Армия скелетов" />
+    <Card Name="Skeleton Barrel" Rare="Common" Cost="3" Type="Troop" StartLvl="0" RusName="Бочка со скелетами" />
+    <Card Name="Skeletons" Rare="Common" Cost="1" Type="Troop" StartLvl="0" RusName="Скелеты" />
+    <Card Name="Sparky" Rare="Legendary" Cost="6" Type="Troop" StartLvl="8" RusName="Спарки" />
+    <Card Name="Spear Goblins" Rare="Common" Cost="2" Type="Troop" StartLvl="0" RusName="Гоблины-копейщики" />
+    <Card Name="Tesla" Rare="Common" Cost="4" Type="Building" StartLvl="0" RusName="Тесла" />
+    <Card Name="The Log" Rare="Legendary" Cost="2" Type="Spell" StartLvl="8" RusName="Бревно" />
+    <Card Name="Three Musketeers" Rare="Rare" Cost="10" Type="Troop" StartLvl="2" RusName="Три мушкетера" />
+    <Card Name="Tombstone" Rare="Rare" Cost="3" Type="Building" StartLvl="2" RusName="Надгробие" />
+    <Card Name="Tornado" Rare="Epic" Cost="3" Type="Spell" StartLvl="5" RusName="Торнадо" />
+    <Card Name="Valkyrie" Rare="Rare" Cost="4" Type="Troop" StartLvl="2" RusName="Валькирия" />
+    <Card Name="Wall Breakers" Rare="Epic" Cost="3" Type="Troop" StartLvl="5" RusName="Стенобои" />
+    <Card Name="Witch" Rare="Epic" Cost="5" Type="Troop" StartLvl="5" RusName="Ведьма" />
+    <Card Name="Wizard" Rare="Rare" Cost="5" Type="Troop" StartLvl="2" RusName="Маг" />
+    <Card Name="X-Bow" Rare="Epic" Cost="6" Type="Building" StartLvl="5" RusName="Арбалет" />
+    <Card Name="Zap" Rare="Common" Cost="2" Type="Spell" StartLvl="0" RusName="Разряд" />
+    <Card Name="Zappies" Rare="Rare" Cost="4" Type="Troop" StartLvl="2" RusName="Мини-генератоты" />
+  </Cards>
+</Translation>

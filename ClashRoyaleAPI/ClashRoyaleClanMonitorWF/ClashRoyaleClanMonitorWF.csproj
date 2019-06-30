@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F0E7FFE9-6E93-47A1-BE6A-2793DE72BA09}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ClashRoyaleClanMonitorWF</RootNamespace>
+    <AssemblyName>ClashRoyaleClanMonitorWF</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MetroFramework">
+      <HintPath>..\..\..\weighingapp\metroframework-modern-ui-master\MetroFramework\bin\Release\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design">
+      <HintPath>..\..\..\weighingapp\metroframework-modern-ui-master\MetroFramework.Design\bin\Release\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts">
+      <HintPath>..\..\..\weighingapp\metroframework-modern-ui-master\MetroFramework.Fonts\bin\Release\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\Cards\CardInfoUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Cards\CardInfoUC.Designer.cs">
+      <DependentUpon>CardInfoUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Clans\ClanCoreUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Clans\ClanCoreUC.Designer.cs">
+      <DependentUpon>ClanCoreUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Clans\ClanInfoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Clans\ClanInfoControl.Designer.cs">
+      <DependentUpon>ClanInfoControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Clans\ClanWarHistory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Clans\ClanWarHistory.Designer.cs">
+      <DependentUpon>ClanWarHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Main\CardSerchInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Main\CardSerchInfo.Designer.cs">
+      <DependentUpon>CardSerchInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Main\MainUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Main\MainUC.Designer.cs">
+      <DependentUpon>MainUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Main\PlayerLeaveCW.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Main\PlayerLeaveCW.Designer.cs">
+      <DependentUpon>PlayerLeaveCW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Players\PlayerInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Players\PlayerInfo.Designer.cs">
+      <DependentUpon>PlayerInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Settings\SettingsUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Settings\SettingsUC.Designer.cs">
+      <DependentUpon>SettingsUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enums\CardRare.cs" />
+    <Compile Include="Enums\CardType.cs" />
+    <Compile Include="Enums\Language.cs" />
+    <Compile Include="Enums\TypeCardSort.cs" />
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPlayerDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPlayerDetail.Designer.cs">
+      <DependentUpon>FormPlayerDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LocalResource.cs" />
+    <Compile Include="Models\PlayerWarLeave.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\CardHelper.cs" />
+    <Compile Include="Utils\ControlHelper.cs" />
+    <Compile Include="Utils\DateConverter.cs" />
+    <Compile Include="Utils\EnumConverter.cs" />
+    <Compile Include="Utils\LocalizationManager.cs" />
+    <EmbeddedResource Include="Controls\Cards\CardInfoUC.resx">
+      <DependentUpon>CardInfoUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Clans\ClanCoreUC.resx">
+      <DependentUpon>ClanCoreUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Clans\ClanInfoControl.resx">
+      <DependentUpon>ClanInfoControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Clans\ClanWarHistory.resx">
+      <DependentUpon>ClanWarHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Main\CardSerchInfo.resx">
+      <DependentUpon>CardSerchInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Main\MainUC.resx">
+      <DependentUpon>MainUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Main\PlayerLeaveCW.resx">
+      <DependentUpon>PlayerLeaveCW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Players\PlayerInfo.resx">
+      <DependentUpon>PlayerInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Settings\SettingsUC.resx">
+      <DependentUpon>SettingsUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPlayerDetail.resx">
+      <DependentUpon>FormPlayerDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClashRoyaleAPI\ClashRoyaleAPI.csproj">
+      <Project>{58abd842-cf79-438e-874d-d31750c4be4d}</Project>
+      <Name>ClashRoyaleAPI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cardsDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-down-drop-circle-outline_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-up-drop-circle-outline_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trophy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\account-group_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help._white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\window-close_White.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\window-maximize_White.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\window-minimize_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level-big.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\league-0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\league-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\league-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\league-3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\league-4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\league-5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\league-6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\league-7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\league-8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\league-9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level-big2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cardsUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\epic-chest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\giant-chest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gold-chest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\legendary-chest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magical-chest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\silver-chest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\super-magical-chest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\battle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\challenges.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clan-wars.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tournament.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnify_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnify_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_advantage_teamwork_1034367.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\super-lightning-chest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cards.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clan-trophies.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ru.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\en.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ru24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\en24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Localization\Eng.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Localization\Ru.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
