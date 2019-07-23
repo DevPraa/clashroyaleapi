@@ -11,13 +11,22 @@ using System.Web.Script.Serialization;
 
 namespace ClashRoyaleAPI
 {
-    public static class Core
+    public sealed class Core
     {
-        private const string BaseURL = "https://api.clashroyale.com/";
-        public static string Token = string.Empty;
-        public static string CurrentURL = string.Empty;
 
-        public static void Init(string Token,VersionAPI version)
+        private static readonly Lazy<Core> _instance = new Lazy<Core>(() => new Core());
+
+        Core() { }
+
+        private readonly string BaseURL = "https://api.clashroyale.com/";
+
+        public static Core Instance { get { return _instance.Value; } }
+
+
+        public string Token { get; private set; }
+        public string CurrentURL { get; private set; }
+
+        public void Init(string Token, VersionAPI version)
         {
             if (string.IsNullOrWhiteSpace(Token))
             {
@@ -25,7 +34,7 @@ namespace ClashRoyaleAPI
             }
 
             string tmpVersion = string.Empty;
-            Core.Token = Token;
+            this.Token = Token;
             switch (version)
             {
                 case VersionAPI.v1:

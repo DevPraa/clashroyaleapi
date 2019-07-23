@@ -22,7 +22,7 @@ namespace ClashRoyaleAPI.BL
                     webRequest.Method = "GET";
                     webRequest.Timeout = 120000;
                     webRequest.ContentType = "application/json";
-                    webRequest.Headers.Add("Authorization", $"Bearer {Core.Token}");
+                    webRequest.Headers.Add("Authorization", $"Bearer {Core.Instance.Token}");
                     var webResponse = webRequest.GetResponse();
                     using (System.IO.Stream s = webResponse.GetResponseStream())
                     {
@@ -73,7 +73,7 @@ namespace ClashRoyaleAPI.BL
                     webRequest.Method = "GET";
                     webRequest.Timeout = 120000;
                     webRequest.ContentType = "application/json";
-                    webRequest.Headers.Add("Authorization", $"Bearer {Core.Token}");
+                    webRequest.Headers.Add("Authorization", $"Bearer {Core.Instance.Token}");
                     var webResponse = webRequest.GetResponse();
                     using (System.IO.Stream s = webResponse.GetResponseStream())
                     {

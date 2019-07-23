@@ -14,7 +14,7 @@ namespace ClashRoyaleAPI.BL
         string _Url;
         public Clans()
         {
-            _Url = Path.Combine(Core.CurrentURL, "clans/");
+            _Url = Path.Combine(Core.Instance.CurrentURL, "clans/");
         }
 
 

@@ -15,7 +15,7 @@ namespace ClashRoyaleAPI.BL
         string _Url;
         public Players()
         {
-            _Url = Path.Combine(Core.CurrentURL, "players/");
+            _Url = Path.Combine(Core.Instance.CurrentURL, "players/");
         }
 
         public Player GetPlayerInfo(string ID)

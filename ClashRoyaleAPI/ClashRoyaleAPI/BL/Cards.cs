@@ -14,7 +14,7 @@ namespace ClashRoyaleAPI.BL
         string _Url;
         public Cards()
         {
-            _Url = Path.Combine(Core.CurrentURL, "cards");
+            _Url = Path.Combine(Core.Instance.CurrentURL, "cards");
         }
 
 

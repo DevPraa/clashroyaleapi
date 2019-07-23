@@ -19,7 +19,7 @@ namespace ClashRoyaleClanMonitorWF.Controls.Settings
         public SettingsUC()
         {
             InitializeComponent();
-            Core.Init(mtb_Token.Text, ClashRoyaleAPI.Enums.VersionAPI.v1);
+            Core.Instance.Init(mtb_Token.Text, ClashRoyaleAPI.Enums.VersionAPI.v1);
             mtb_PlayerID.Text = ClashRoyaleClanMonitorWF.Properties.Settings.Default.PlayerID;
             mtb_Token.Text = ClashRoyaleClanMonitorWF.Properties.Settings.Default.Token;
 
@@ -35,7 +35,7 @@ namespace ClashRoyaleClanMonitorWF.Controls.Settings
         {
             if (!string.IsNullOrWhiteSpace(mtb_Token.Text))
             {
-                Core.Init(mtb_Token.Text, ClashRoyaleAPI.Enums.VersionAPI.v1);
+                Core.Instance.Init(mtb_Token.Text, ClashRoyaleAPI.Enums.VersionAPI.v1);
                 ClashRoyaleClanMonitorWF.Properties.Settings.Default.Token = mtb_Token.Text;
                 ClashRoyaleClanMonitorWF.Properties.Settings.Default.Save();
             }
